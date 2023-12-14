@@ -1,10 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap');
 
-
-* {
-    outline: 1px solid red;
-}
-
 :root {
     --turquoise: hsl(177, 68%, 64%);
     --orangish: hsl(12, 94%, 65%);
@@ -65,6 +60,7 @@ section.hero {
     font-size: 5.5rem;
     line-height: 1em;
     letter-spacing: -1px;
+
 }
 
 .hero__content {
@@ -75,7 +71,7 @@ section.hero {
 
 section.equalizer {
     margin-top: 15rem;
-    margin-bottom: 7.5rem;
+    margin-bottom: 8rem;
     padding-left: 4rem;
     padding-right: 4rem;
     border-radius: 1rem;
@@ -174,6 +170,22 @@ button a {
     background-color: var(--golden-yellow);
 }
 
+footer {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    column-gap: 5rem;
+}
+
+.social-media-icons {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+svg:hover {
+    fill: var(--golden-yellow);
+}
+
 @media only screen and (max-width: 1280px) {
     body {
         background-position: 105% -35px, -300px -200px;
@@ -219,6 +231,27 @@ button a {
     img[alt=phone] {
         width: 270px;
     }
+
+    footer {
+        grid-template-columns: 1fr auto;
+        grid-template-areas: 
+        "logo    icons"
+        "content icons";
+        row-gap: 1rem;
+    }
+
+    .footer__logo {
+        grid-area: logo;
+    }
+    
+    .footer__content {
+        grid-area: content;
+    }
+
+    .social-media-icons {
+        grid-area: icons;
+        align-self: end;
+    }
 }
 
 @media only screen and (max-width: 750px) {
@@ -227,8 +260,14 @@ button a {
         background-position: -300px -200px;
     }
 
+    header {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
     section.hero {
         max-width: initial;
+        padding-top: 1rem;
     }
 }
 
@@ -262,5 +301,30 @@ button a {
     .subscription-card {
         min-height: initial;
         position: static;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .hero__heading {
+        font-size: 3rem;
+    }
+    
+    footer {
+        grid-template-columns: auto;
+        grid-template-areas: initial;
+        row-gap: 1rem;
+    }
+
+    .footer__logo {
+        grid-area: initial;
+    }
+    
+    .footer__content {
+        grid-area: initial;
+    }
+
+    .social-media-icons {
+        grid-area: initial;
+        align-self: initial;
     }
 }
