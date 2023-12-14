@@ -1,11 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap');
 
+
+* {
+    outline: 1px solid red;
+}
+
 :root {
     --turquoise: hsl(177, 68%, 64%);
-    --orangish: hsl(12, 94, 65);
-    --golden-yellow: hsl(33, 100, 73);
-    --offwhite: hsl(20, 33, 98);
-    --dark-blue: hsl(244, 23, 12);
+    --orangish: hsl(12, 94%, 65%);
+    --golden-yellow: hsl(33, 100%, 73%);
+    --offwhite: hsl(20, 33%, 98%);
+    --dark-blue: hsl(244, 23%, 12%);
 }
 
 html {
@@ -68,6 +73,107 @@ section.hero {
     margin-top: 2.5rem;
 }
 
+section.equalizer {
+    margin-top: 15rem;
+    margin-bottom: 7.5rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    border-radius: 1rem;
+    display: grid;
+    grid-template-columns: auto minmax(300px, 425px);
+    height: 600px;
+    background-color: var(--dark-blue);
+    background-image: url("../img/bg-pattern-2.svg");
+    background-repeat: no-repeat;
+    background-position: 40% 50px;
+    grid-auto-rows: auto;
+}
+
+img[alt=phone] {
+    width: 312px;
+    border-radius: 1rem;
+    justify-self: left;
+    transform: translateY(-175px);
+}
+
+.subscription-card {
+    min-height: 600px;
+    align-self: flex-start;
+    justify-self: right;
+    border-radius: 1rem;
+    display: grid;
+    padding: 2rem;
+    row-gap: 1.5rem;
+    background-color: var(--orangish);
+    color: var(--offwhite);
+    position: relative;
+    z-index: 1;
+    top: 100px;
+}
+
+.sc__content {
+    font-size: 1.25rem;
+    line-height: 2.125rem;
+}
+
+.sc__price {
+    display: flex;
+    align-items: center;
+}
+
+.sc__price-highlight {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.subscription-card button {
+
+    width: 100%;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+button a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sc__ios-button>a::before {
+    content: url("../img/icon-apple.svg");
+    margin-right: 0.5rem;
+}
+
+.sc__ios-button {
+    background-color: black;
+    color: var(--offwhite);
+    margin-bottom: 1rem;
+}
+
+.sc__ios-button:hover {
+    background-color: var(--turquoise);
+}
+
+.sc__android-button>a::before {
+    content: url("../img/icon-android.svg");
+    margin-right: 0.5rem;
+}
+
+.sc__android-button {
+    color: black;
+    background-color: var(--offwhite);
+}
+
+.sc__android-button:hover {
+    background-color: var(--golden-yellow);
+}
+
 @media only screen and (max-width: 1280px) {
     body {
         background-position: 105% -35px, -300px -200px;
@@ -81,6 +187,17 @@ section.hero {
         font-size: 4.5rem;
     }
 
+}
+
+@media only screen and (max-width: 900px) {
+    section.equalizer {
+        margin-bottom: 12rem;
+    }
+
+    .subscription-card {
+        left: -100px;
+        top: 140px;
+    }
 }
 
 @media only screen and (max-width: 1050px) {
@@ -98,11 +215,52 @@ section.hero {
         background-image: url("../img/bg-pattern-1.svg"), url("../img/bg-main-tablet.png");
         background-position: 113% -35px, -300px -200px;
     }
+
+    img[alt=phone] {
+        width: 270px;
+    }
 }
 
 @media only screen and (max-width: 750px) {
     body {
         background-image: url("../img/bg-main-tablet.png");
         background-position: -300px -200px;
+    }
+
+    section.hero {
+        max-width: initial;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .subscription-card {
+        min-height: initial;
+    }
+
+    section.equalizer {
+        margin-bottom: 6rem;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    section.equalizer {
+        grid-template-columns: auto;
+        height: auto;
+        margin-bottom: 2rem;
+        margin-top: 8rem;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    img[alt="phone"] {
+        transform: initial;
+        transform: translateY(-75px);
+        width: 210px;
+        justify-self: center;
+    }
+
+    .subscription-card {
+        min-height: initial;
+        position: static;
     }
 }
